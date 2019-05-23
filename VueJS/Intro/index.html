@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>Vue Introduction</title>
+</head>
+<body>
+    
+    <div class="intro" id="app">
+        <div class="hide-show" v-if="show">
+             <h1>{{ message }}</h1>
+        </div>
+        <h2>Working with loops:</h2>
+        <ul>
+            <li v-for="item in items">{{item.title}}</li>
+        </ul>
+        <button v-on:click="toggleShow">Show/Hide</button>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
