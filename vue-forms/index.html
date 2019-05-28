@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Forms</title>
+</head>
+<body>
+    
+    <div class="vue-form" id="app">
+        <form v-on:submit.prevent="isSubmitted = true">
+            <div>
+                <label>Message Input</label>
+                <input type="text" class="tx-inp" v-model="msg">
+            </div>
+            <div>
+                <label>Type in a message</label>
+                <textarea class="reg-ta" v-model="taMsg"></textarea>
+            </div>
+            <div>
+                <label>Which framework do you like?</label>
+                <select class="td-sel" v-model="selected">
+                    <option disabled value="">Please select one</option>
+                    <option v-for="opt in opts" :value="opt.title">{{opt.title}}</option>
+                </select>
+            </div>
+            <div v-for="rad in rads">
+                <label for="rad">{{rad.title}}</label>
+                <input type="radio" class="fm-rad" id="rad" :value="rad.title" v-model="rads.title">
+            </div>
+            <div v-for="check in checks">
+                <label for="rad">{{check.title}}</label>
+                <input type="checkbox" class="fm-rad" id="rad" :value="check.title" v-model="checkedBranch">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        <div class="fm-values" v-if="isSubmitted">
+            <p>Message Input: {{ msg }}</p>
+            <p>Textarea: {{taMsg}}</p>
+            <p>Select: {{selected}}</p>
+            <p>Radio: {{rads.title}}</p>
+            <p>Checkbox: {{checkedBranch}}</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
